@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './PokemonList.css';
 
 const baseUrl = 'https://pokeapi.co/api/v2/pokemon/'; //?offset=0&limit=20';
@@ -37,8 +38,9 @@ export default () => {
         <section className="pokemonlist">
             {
                 pokemons.map((o) => {
+                    const id = o.url.split('/')[6];
                     return (<div key={o.name}>
-                        {o.name}
+                        <Link to={`/pokemon/${id}/${o.name}`}>{o.name}</Link>
                     </div>)
                 })
             }

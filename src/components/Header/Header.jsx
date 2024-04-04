@@ -3,12 +3,12 @@ import { useState } from 'react';
 import './Header.css';
 // Modulos
 // Definen objetos, funciones, clases, constante, enumerados etc...
-const Header = ()=>{
+const Header = ({title="Titulo"})=>{
     const [showMenu, setShowMenu] = useState(false);
     // JSX  --> Invento de Facebook de definir Pseudo HTML en archivos de Javascript
     return (
         <header>
-            <h1>Title</h1>
+            <h1>{title}</h1>
             <nav className={(showMenu) ? '' : 'hide'}>
                 <ul>
                     <li><Link to="/">Home</Link></li>
