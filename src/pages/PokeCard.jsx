@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
+
+import Loader from '../components/Loader/Loader';
 import Page from "./Page";
 
 const baseUrl = 'https://pokeapi.co/api/v2/pokemon'; //id';
@@ -13,6 +15,7 @@ export default () => {
     useEffect(
         () => {
             setIsLoading(true);
+            setTimeout(()=>{
             fetch(`${baseUrl}/${id}`)
                 .then(res => res.json())
                 .then(data => {
@@ -25,11 +28,13 @@ export default () => {
                     setError("Error al cargar datos de pokemon");
                     setIsLoading(false);
                 });
+            }, 5000);
         }
         ,
         [id]);
     return (
         <Page title={`Detalle de ${name}`}>
+            {isLoading && <Loader />}
             <section style={{padding:'1rem'}}>
             {pokemon && <>
                 <h2>PokeCard Detail {id} {name}</h2>

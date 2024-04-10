@@ -1,0 +1,27 @@
+.loaderbackground {
+    position: static;
+    width:100vw;
+    height: 100vh;
+    top:0px;
+    left:0px;
+    background-color: #000;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.loaderbackground .loader{
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 3px solid #bbb;
+    border-bottom-color: #777;
+    border-top-color: #777;
+    animation: InfiniteRotation 0.5s infinite;
+}
+
+@keyframes InfiniteRotation {
+    0%{ transform: rotate(0deg);}
+    50% { transform: rotate(180deg);}
+    100% {transform: rotate(360deg);}
+}
